@@ -20,6 +20,7 @@ public class EmployeeController {
     private final EmployeeService employeeService;
 
     @GetMapping()
+    @PreAuthorize("hasAnyRole('ADMIN', 'MANAGER')")
     public List<Employee> getAllEmployees() {
         return employeeService.getAllEmployees();
     }
